@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.blog.databinding.ActivitySigninBinding
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -30,7 +31,7 @@ class SigninActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         auth= FirebaseAuth.getInstance()
-        database=FirebaseDatabase.getInstance()
+        database=FirebaseDatabase.getInstance("https://blog-65532-default-rtdb.asia-southeast1.firebasedatabase.app")
         storage=FirebaseStorage.getInstance()
         //visibility
 
@@ -52,6 +53,7 @@ class SigninActivity : AppCompatActivity() {
 
         }else if(action=="register")
         {
+
             binding.registerNewHere.isEnabled=false
             binding.registerNewHere.alpha=0.5f
             binding.registerButton.setOnClickListener{
@@ -63,26 +65,42 @@ class SigninActivity : AppCompatActivity() {
                     Toast.makeText(this,"Please Fill All The Details",Toast.LENGTH_SHORT).show()
                 }else
                 {
+
+
                     auth.createUserWithEmailAndPassword(registerEmail,registerPassword)
                         .addOnCompleteListener{task->
                             if(task.isSuccessful)
                         {
+                            Toast.makeText(this,"Successfully registered",Toast.LENGTH_SHORT).show()
                                 val user=auth.currentUser
 
-                            user?.let{
-                                val userReference=database.getReference("users")
-                                val userId=user.uid
-                                val userData=UserData(
+                            user?.let {
+                                val userReference = database.getReference("users")
+                                val userId = user.uid
+                                val userData = UserData(
                                     registerName,
                                     registerPassword
                                 )
                                 userReference.child(userId).setValue(userData)
+                                    .addOnSuccessListener {
+                                        Log.d("TAG", "onCreate:data saved")
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.e(
+                                            "TAG",
+                                            "onCreate:Error sad life android is worst!!!!! ${e.message}"
+                                        )
+                                    }
                                 //upload image to firebase
-                                val storageReference=storage.reference.child("profile_image/$userId.jpg")
+                                val storageReference =
+                                    storage.reference.child("profile_image/$userId.jpg")
                                 storageReference.putFile(imageUri!!)
-                                Toast.makeText(this,"success",Toast.LENGTH_SHORT)
+                                Toast.makeText(this, "success in registration", Toast.LENGTH_SHORT)
+                                    .show()
 
                             }
+
+
 
 
 
@@ -111,16 +129,18 @@ class SigninActivity : AppCompatActivity() {
             startActivityForResult(Intent.createChooser(intent,"select image"),PICK_IMAGE_REQEST)
         }
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==PICK_IMAGE_REQEST && resultCode== RESULT_OK && data!=null && data.data!=null)
         {
             imageUri=data.data
+
             Glide.with(this)
                 .load(imageUri)
                 .apply(RequestOptions.circleCropTransform())
                 .into(binding.imageView)
         }
     }
+
+
 }
