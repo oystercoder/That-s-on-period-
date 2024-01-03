@@ -16,7 +16,8 @@ Share your thoughts, experiences, and triumphs through personalized blogs. Our a
 
 <br> <br>
 <br> <br>
-[WhatsApp Image 2024-01-03 at 10 04 23 AM (1)](https://github.com/oystercoder/sheneedsandroid/assets/97734229/1e3e6d4a-f475-41a8-8e32-d65ebc105b55)
+![WhatsApp Image 2024-01-03 at 10 04 23 AM (1)](https://github.com/oystercoder/sheneedsandroid/assets/97734229/6d5c8eba-3ec5-496f-89f0-52f4c40001d4)
+
 <br> <br>
 <br> <br>
 
