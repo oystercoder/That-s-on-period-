@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.blog.Model.UserData
+import com.example.blog.register.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -48,6 +49,32 @@ class SigninActivity : AppCompatActivity() {
             binding.registerPassword.visibility=View.GONE
             binding.cardView.visibility=View.GONE
             binding.registerName.visibility=View.GONE
+            binding.loginButton.setOnClickListener {
+                val loginEmail=binding.loginEmailAddress.text.toString()
+                val loginPassword=binding.loginPassword.text.toString()
+                if(loginEmail.isEmpty()||loginPassword.isEmpty())
+                {
+                    Toast.makeText(this,"Girl fill all the details😢😢",Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    auth.signInWithEmailAndPassword(loginEmail,loginPassword)
+                        .addOnCompleteListener {
+                            task->
+                            if(task.isSuccessful)
+                            {
+                                Toast.makeText(this,"Login Successfull😊😊",Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this,MainActivity::class.java))
+                                finish()
+                            }else{
+                                Toast.makeText(this," Failed Please Enter Correct Details🤷‍♀️🤷‍♀️",Toast.LENGTH_SHORT).show()
+
+                            }
+                        }
+
+
+                }
+
+            }
 
 
 
@@ -71,32 +98,44 @@ class SigninActivity : AppCompatActivity() {
                         .addOnCompleteListener{task->
                             if(task.isSuccessful)
                         {
-                            Toast.makeText(this,"Successfully registered",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,"Successfully registered👏👏 Now go and login to explore✨",Toast.LENGTH_SHORT).show()
                                 val user=auth.currentUser
+                                auth.signOut()
 
-                            user?.let {
-                                val userReference = database.getReference("users")
-                                val userId = user.uid
-                                val userData = UserData(
+                                user?.let {
+                                    val userReference = database.getReference("users")
+                                    val userId = user.uid
+                                    val userData = UserData(
                                     registerName,
-                                    registerPassword
+                                    registerEmail
                                 )
                                 userReference.child(userId).setValue(userData)
-                                    .addOnSuccessListener {
-                                        Log.d("TAG", "onCreate:data saved")
-                                    }
-                                    .addOnFailureListener { e ->
-                                        Log.e(
-                                            "TAG",
-                                            "onCreate:Error sad life android is worst!!!!! ${e.message}"
-                                        )
-                                    }
+//                                    .addOnSuccessListener {
+//                                        Log.d("TAG", "onCreate:data saved")
+//                                    }
+//                                    .addOnFailureListener { e ->
+//                                        Log.e(
+//                                            "TAG",
+//                                            "onCreate:Error sad life android is worst!!!!! ${e.message}"
+//                                        )
+//                                    }
                                 //upload image to firebase
                                 val storageReference =
                                     storage.reference.child("profile_image/$userId.jpg")
-                                storageReference.putFile(imageUri!!)
-                                Toast.makeText(this, "success in registration", Toast.LENGTH_SHORT)
-                                    .show()
+                                storageReference.putFile(imageUri!!).addOnCompleteListener{task->
+                                    storageReference.downloadUrl.addOnCompleteListener{imageUri->
+                                        val imageUrl=imageUri.toString()
+                                        //save to real time database
+                                        userReference.child("userId").child("profileImage").setValue(imageUrl)
+                                        Glide.with(this)
+                                            .load(imageUri)
+                                            .apply(RequestOptions.circleCropTransform())
+                                            .into(binding.imageView)
+                                    }
+                                }
+                               // Toast.makeText(this, "success in registration", Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this,WelcomeActivity::class.java))
+                                    finish()
 
                             }
 
@@ -105,7 +144,7 @@ class SigninActivity : AppCompatActivity() {
 
 
                         }else{
-                            Toast.makeText(this,"failed",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,"failed🙌🙌",Toast.LENGTH_SHORT).show()
 
 
                         }
