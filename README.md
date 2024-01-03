@@ -5,7 +5,7 @@ Dive into the world of empowered womanhood with THAT'S ON PERIOD – the ultimat
 Feel free to share your stories anonymously if you desire
 
 Share your thoughts, experiences, and triumphs through personalized blogs. Our app provides a safe space for women to embrace the beauty and challenges of their menstrual journey.
-**Figma file taken reference from check it out**
+
 
 
 ![splash_screen](https://github.com/oystercoder/sheneedsandroid/assets/97734229/42e8df5c-8c1f-437d-961f-48ff7980f9d3)
