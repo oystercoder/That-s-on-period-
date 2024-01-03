@@ -13,11 +13,15 @@ Share your thoughts, experiences, and triumphs through personalized blogs. Our a
 ![splash_screen](https://github.com/oystercoder/sheneedsandroid/assets/97734229/42e8df5c-8c1f-437d-961f-48ff7980f9d3)
 <br> <br>
 <br> <br>
-![WhatsApp Image 2024-01-03 at 10 04 24 AM](https://github.com/oystercoder/sheneedsandroid/assets/97734229/c4dd9c12-706f-4395-87f5-fcae2a00ac0b)
+
+<br> <br>
+<br> <br>
+[WhatsApp Image 2024-01-03 at 10 04 23 AM (1)](https://github.com/oystercoder/sheneedsandroid/assets/97734229/1e3e6d4a-f475-41a8-8e32-d65ebc105b55)
 <br> <br>
 <br> <br>
 
-**ON CLICKING READ MORE**
+**ON CLICKING!
+ READ MORE**
 ![read more](https://github.com/oystercoder/sheneedsandroid/assets/97734229/24dce593-e5fa-42f5-b0be-9a8152c22f95)
 <br> <br>
 <br> <br>
