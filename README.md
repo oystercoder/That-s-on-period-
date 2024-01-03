@@ -9,8 +9,6 @@ Share your thoughts, experiences, and triumphs through personalized blogs. Our a
 
 
 
-
-![splash_screen](https://github.com/oystercoder/sheneedsandroid/assets/97734229/42e8df5c-8c1f-437d-961f-48ff7980f9d3)
 <br> <br>
 <br> <br>
 
