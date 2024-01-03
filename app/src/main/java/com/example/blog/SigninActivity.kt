@@ -100,7 +100,7 @@ class SigninActivity : AppCompatActivity() {
                         {
                             Toast.makeText(this,"Successfully registered👏👏 Now go and login to explore✨",Toast.LENGTH_SHORT).show()
                                 val user=auth.currentUser
-                                auth.signOut()
+                               // auth.signOut()
 
                                 user?.let {
                                     val userReference = database.getReference("users")

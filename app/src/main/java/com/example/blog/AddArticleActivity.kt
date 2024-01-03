@@ -27,6 +27,9 @@ class AddArticleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        binding.imageButton.setOnClickListener{
+            finish()
+        }
         binding.addBlogButton.setOnClickListener {
             val title=binding.blogTitle.editText?.text.toString().trim()
             val description=binding.blogDescription.editText?.text.toString().trim()
