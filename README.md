@@ -2,7 +2,8 @@
 <br> <br>
 **https://drive.google.com/drive/folders/1ttMzPuXf5JDcRqT7iygCpnuDXMIaLxnP?usp=sharing** <br> <br>for all the details
 Dive into the world of empowered womanhood with THAT'S ON PERIOD – the ultimate platform designed for women to share, connect, and thrive through the ebb and flow of their menstrual cycles.
-**scrollview in blogs** 
+<br> <br>
+**About scroll view which i used in my read more activity in my application** 
 **https://www.geeksforgeeks.org/scrollview-in-android/**
 
 🤫 Anonymous Sharing:
