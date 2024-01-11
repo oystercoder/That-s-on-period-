@@ -1,5 +1,7 @@
 **That's on period**
 <br> <br>
+![splash_screen](https://github.com/oystercoder/That-s-on-period-/assets/97734229/d40ee455-84db-48e1-bc1f-3d2dfe67b6c9)
+<br><br>
 **https://drive.google.com/drive/folders/1ttMzPuXf5JDcRqT7iygCpnuDXMIaLxnP?usp=sharing** <br> <br>for all the details
 Dive into the world of empowered womanhood with THAT'S ON PERIOD – the ultimate platform designed for women to share, connect, and thrive through the ebb and flow of their menstrual cycles.
 <br> <br>
@@ -10,6 +12,7 @@ Dive into the world of empowered womanhood with THAT'S ON PERIOD – the ultimat
 Feel free to share your stories anonymously if you desire
 
 Share your thoughts, experiences, and triumphs through personalized blogs. Our app provides a safe space for women to embrace the beauty and challenges of their menstrual journey.
+
 
 
 
